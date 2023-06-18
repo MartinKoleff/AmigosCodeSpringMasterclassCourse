@@ -22,4 +22,12 @@ public class StudentService {
         //TODO wire with real repo...
         return studentRepository.getStudents();
     }
+
+    public Student getStudent(Long id) {
+       return studentRepository.getStudents()
+                .stream()
+                .filter(student -> student.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Student not found."));
+    }
 }

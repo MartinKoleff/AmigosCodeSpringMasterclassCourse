@@ -16,8 +16,8 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping(path = "/v1/students")
-    public List<Student> getStudents() {
+    @GetMapping("/")
+    List<Student> getStudents() {
         return studentService.getStudents();
     }
 }

@@ -2,6 +2,8 @@ package com.koleff.coursePractise.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,8 +18,14 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping("/")
-    List<Student> getStudents() {
+    @GetMapping(path = "/v1/students")
+    public List<Student> getStudents() {
         return studentService.getStudents();
+    }
+
+    @PostMapping("/")
+    void createNewStudent(@RequestBody Student student){
+        System.out.println("POST REQUEST PASSED!");
+        System.out.println("Student -> " + student);
     }
 }

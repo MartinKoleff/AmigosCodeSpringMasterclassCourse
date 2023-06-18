@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Student{
     private final int id;
     private final String name;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final String password;
 
     public Student(int id, String name, String password) {
@@ -27,5 +28,13 @@ public class Student{
     @JsonIgnore
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

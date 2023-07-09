@@ -11,7 +11,7 @@ public class StudentRepositoryImpl implements StudentRepository{
     public List<Student> getStudents() {
         //TODO wire with DB...
         return Collections.singletonList(
-                new Student(0, "To be implemented...", "password")
+                new Student(0, "To be implemented...", "password", "email@gmail.com")
         );
     }
 }

@@ -11,8 +11,8 @@ public class StudentFakeRepositoryImpl implements StudentRepository{
     public List<Student> getStudents() {
         //TODO wire with DB...
         return Arrays.asList(
-                new Student(1, "Marto", "ceoOfSex123"),
-                new Student(2, "Petko", "sajdiImaLi")
+                new Student(1, "Marto", "ceoOfSex123", "koleff@koleff.bg"),
+                new Student(2, "Petko", "sajdiImaLi", "petko_reshetko@aitos.bg")
         );
     }
 }

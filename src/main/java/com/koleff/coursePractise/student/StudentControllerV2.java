@@ -1,5 +1,6 @@
 package com.koleff.coursePractise.student;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,7 @@ public class StudentControllerV2 {
     }
 
     @PostMapping
-    void createNewStudent(@RequestBody Student student){
+    void createNewStudent(@Valid @RequestBody Student student){
         System.out.println("POST REQUEST V2 RECEIVED!");
         System.out.println("Student -> " + student);
     }

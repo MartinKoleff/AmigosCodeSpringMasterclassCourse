@@ -2,10 +2,14 @@ package com.koleff.coursePractise.student;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class Student{
     private final int id;
+    @NotNull
     private final String name;
+    @NotNull
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final String password;
 

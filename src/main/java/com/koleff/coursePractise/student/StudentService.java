@@ -1,5 +1,6 @@
 package com.koleff.coursePractise.student;
 
+import com.koleff.coursePractise.exceptions.StudentNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -28,6 +29,7 @@ public class StudentService {
                 .stream()
                 .filter(student -> student.getId() == id)
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException("Student not found."));
+                .orElseThrow(() -> new StudentNotFoundException(
+                        String.format("Student with id %d not found.", id)));
     }
 }

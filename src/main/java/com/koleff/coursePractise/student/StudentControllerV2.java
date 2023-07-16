@@ -1,5 +1,7 @@
 package com.koleff.coursePractise.student;
 
+import com.koleff.coursePractise.exceptions.ApiRequestException;
+import com.koleff.coursePractise.exceptions.StudentNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +27,13 @@ public class StudentControllerV2 {
     @GetMapping(path = "{studentId}")
     public Student getStudent(@PathVariable("studentId") Long id) {
         return studentService.getStudent(id);
+    }
+
+    @GetMapping(path = "{studentId}/exception")
+    public Student getStudentException(@PathVariable("studentId") Long id) {
+       throw new ApiRequestException(
+               "API REQUEST EXCEPTION for adding student with id " + id
+       );
     }
 
     @PostMapping

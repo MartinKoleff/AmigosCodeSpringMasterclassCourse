@@ -29,4 +29,23 @@ public class ApiExceptionHandler {
                 payload.getHttpStatus()
         );
     }
+
+    @ExceptionHandler(value = StudentNotFoundException.class)
+    public ResponseEntity<Object> handleStudentNotFoundException(StudentNotFoundException e){
+
+        //Returned to the client
+        ApiException payload = new ApiException(
+                e.getMessage(),
+                e.getCause(),
+                HttpStatus.NOT_FOUND,
+                ZonedDateTime.now()
+        );
+
+        System.out.println("Error thrown with status code: " + payload.getHttpStatusCode());
+
+        return new ResponseEntity(
+                payload,
+                payload.getHttpStatus()
+        );
+    }
 }

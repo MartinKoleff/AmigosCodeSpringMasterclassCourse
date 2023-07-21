@@ -11,7 +11,7 @@ import java.time.ZonedDateTime;
 @ControllerAdvice
 public class ApiExceptionHandler {
 
-    @ExceptionHandler(value = ApiRequestException.class)
+    @ExceptionHandler(value = ApiRequestException.class) //To make unified error handler. All ApiRequestExceptions to have the payload data inside them (integrate ApiException inside ApiRequestException).
     public ResponseEntity<Object> handleApiRequestException(ApiRequestException e){
 
         //Returned to the client

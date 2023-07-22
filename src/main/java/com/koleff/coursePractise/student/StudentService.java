@@ -2,10 +2,7 @@ package com.koleff.coursePractise.student;
 
 import com.koleff.coursePractise.exceptions.StudentNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -20,15 +17,12 @@ public class StudentService {
     }
 
     public List<Student> getStudents(){
-        //TODO wire with real repo...
-        return studentRepository.getStudents();
+        return studentRepository.findAll();
     }
 
     public Student getStudent(Long id) {
-       return studentRepository.getStudents()
-                .stream()
-                .filter(student -> student.getId() == id)
-                .findFirst()
+       return studentRepository
+                .findById(id)
                 .orElseThrow(() -> new StudentNotFoundException(
                         String.format("Student with id %d not found.", id)));
     }

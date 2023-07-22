@@ -20,10 +20,9 @@ public class StudentConfig {
     }
 
     @Bean
-    StudentRepository studentRepository() {
+    StudentFakeRepo studentFakeRepo() {
         System.out.printf("Use fake student repository -> %s\n", useFakeStudentRepository);
 
-        return useFakeStudentRepository ? new StudentFakeRepositoryImpl()
-                : new StudentRepositoryImpl();
+        return new StudentFakeRepoImpl();
     }
 }

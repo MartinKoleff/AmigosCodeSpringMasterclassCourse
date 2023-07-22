@@ -2,28 +2,37 @@ package com.koleff.coursePractise.student;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 
+@Entity
+@Table
 public class Student{
-    private final int id;
+    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     @NotNull(message = "Name must be not empty.")
-    private final String name;
+    private String name;
 
     @NotNull(message = "Password must be not empty.")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private final String password;
+    private String password;
 
     @NotNull(message = "Email must be not empty.")
     @Email //(regexp = "")
-    private final String email;
+    private String email;
 
     public Student(int id, String name, String password, String email) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
+    }
+
+    Student(){
+
     }
 
     @JsonProperty(value = "studentName")

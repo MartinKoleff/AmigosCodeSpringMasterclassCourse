@@ -1,5 +1,6 @@
-package com.koleff.coursePractise.student;
+package com.koleff.coursePractise.student.fakeRepository;
 
+import com.koleff.coursePractise.student.Student;
 import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;

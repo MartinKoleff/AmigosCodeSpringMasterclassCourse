@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Repository
-public class StudentFakeRepositoryImpl implements StudentRepository{
+public class StudentFakeRepoImpl implements StudentFakeRepo {
     @Override
     public List<Student> getStudents() {
         //TODO wire with DB...

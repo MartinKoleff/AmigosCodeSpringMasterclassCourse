@@ -10,7 +10,6 @@ import jakarta.validation.constraints.NotNull;
 @Table
 public class Student{
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NotNull(message = "Name must be not empty.")
